@@ -1,4 +1,4 @@
-<polymer-element name="cmv-deck" attributes="slideCount">
+<polymer-element name="cmv-deck" attributes="currentSlide">
 	<template>
 		<style>
 			:host {
@@ -19,30 +19,99 @@
 				z-index: 1001;
 				color: #f00;
 			}
+			#slideControl .disabled {
+				opacity: 0.5;
+			}
 			content {
-				border: 1px #fff solid;
+				color: #fff;
 			}
 		</style>
 		<content></content>
-		<template if="{{ slideCount > 1}}">
-			<div id='slideControl'>
-				<li>Left</li>
-				<li>Right</li>
-				<li>Up</li>
-				<li>Down</li>
-			</div>
-		</template>
+		<div id='slideControl' if="{{ slideCount > 1}}">
+			<p>{{currentSlide}} of {{slideCount}}</p>
+			<button on-click="{{prevSlide}}" id="btnPrev">Prev</button>
+			<button on-click="{{nextSlide}}" id="btnNext">Next</button>
+		</div>
 	</template>
 	<script>
 		(function() {
 			Polymer("cmv-deck", {
+				currentSlide:0,
 				slideCount:0,
-				init: function() {
+				ready: function() {
 					console.log("Init Deck Fires");
+					this.slideCount = this.getSlides().length;
+					this.setSlide(1);
+				},
+				getSlides: function() {
+					return this.querySelectorAll('cmv-slide').array();
+				},
+				setSlide: function(slideNo) {
+					this.currentSlide = slideNo;
+					this.updateSlideControl();
+				},
+				prevSlide: function() {
+					if (this.currentSlide > 1) {
+						this.currentSlide--;
+					}
+					this.updateSlideControl();
+				},
+				nextSlide: function() {
+					if (this.currentSlide < this.slideCount) {
+						this.currentSlide++;
+					}
+					this.updateSlideControl();
+				},
+				updateSlideControl: function() {
+					var btnPrev = this.$.btnPrev;
+					var btnNext = this.$.btnNext;
+					
+					if (this.currentSlide <= 1) {
+						btnPrev.className = "disabled";
+					} else {
+						btnPrev.className = "";
+					}
+
+					if (this.currentSlide >= this.slideCount) {
+						btnNext.className = "disabled";
+					} else {
+						btnNext.className = "";
+					}
+
+					if (this.currentSlide >= 0) {
+						window.location.replace("#/slide/" + (this.currentSlide));
+					} else {
+						window.location.replace("#");
+					}
+					this.updateSlides();
+				},
+				updateSlides: function() {
+					var currentSlideNo = (this.currentSlide-1);
+					this.getSlides().forEach(function(slide, i) {
+						slide.classList.remove("previous", "current", "next");
+						if (i < currentSlideNo) {
+							slide.classList.add("previous");
+						} else if (i > currentSlideNo) {
+							slide.classList.add("next");
+						} else {
+							slide.classList.add("current");
+						}
+					});
 				}
 			});
 
-			//window.addEventListener("load", initDeck);
+			function updateSlideFromHash() {
+				var hash = window.location.hash;
+				var match = hash.match(/^#\/slide\/(\d+)$/) || [];
+				var deck = document.querySelector("cmv-deck");
+				var currentSlide = parseInt(match[1], 10);
+
+				if (currentSlide != deck.currentSlide) {
+					deck.setSlide(currentSlide);
+				}
+			}
+
+			window.addEventListener("hashchange", updateSlideFromHash);
 		})();
 	</script>
 </polymer-element>
