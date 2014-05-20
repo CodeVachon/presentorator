@@ -34,10 +34,15 @@
 		</template>
 	</template>
 	<script>
-  (function() {
-    Polymer("cmv-deck", {
-    	slideCount:0
-    });
-   })();
+		(function() {
+			Polymer("cmv-deck", {
+				slideCount:0,
+				init: function() {
+					console.log("Init Deck Fires");
+				}
+			});
+
+			//window.addEventListener("load", initDeck);
+		})();
 	</script>
 </polymer-element>
