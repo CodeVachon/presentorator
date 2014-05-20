@@ -1,0 +1,43 @@
+<polymer-element name="cmv-deck" attributes="slideCount">
+	<template>
+		<style>
+			:host {
+				display: block;
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				z-index: 1;
+				background-color: #333;
+			}
+			#slideControl {
+				display: block;
+				position: fixed;
+				bottom: 0;
+				right: 0;
+				z-index: 1001;
+				color: #f00;
+			}
+			content {
+				border: 1px #fff solid;
+			}
+		</style>
+		<content></content>
+		<template if="{{ slideCount > 1}}">
+			<div id='slideControl'>
+				<li>Left</li>
+				<li>Right</li>
+				<li>Up</li>
+				<li>Down</li>
+			</div>
+		</template>
+	</template>
+	<script>
+  (function() {
+    Polymer("cmv-deck", {
+    	slideCount:0
+    });
+   })();
+	</script>
+</polymer-element>
