@@ -13,12 +13,12 @@
 				z-index: 1000;
 			}
 			:host(.previous) {
-				-webkit-transform: translate(-1200px,0) rotateY(-85deg);
-				transform: translate(-1200px,0) rotateY(-85deg);
+				-webkit-transform: translate(-1200px,0) translateZ(1200px) rotateY(-85deg);
+				transform: translate(-1200px,0) translateZ(1200px) rotateY(-85deg);
 			}
 			:host(.next) {
-				-webkit-transform: translate(1200px,0) rotateY(85deg);
-				transform: translate(1200px,0) rotateY(85deg);
+				-webkit-transform: translate(1200px,0) translateZ(1200px) rotateY(85deg);
+				transform: translate(1200px,0) translateZ(1200px) rotateY(85deg);
 			}
 		</style>
 		<content></content>
