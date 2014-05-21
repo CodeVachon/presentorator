@@ -106,7 +106,65 @@
 				}
 			}
 
+			var KEY_MAP = {
+				8: 'delete',
+				9: 'tab',
+				20: 'space',
+				'!': 'exclamation',
+				'@': 'at',
+				'#': 'pound',
+				'$': 'dollar',
+				'%': 'percent',
+				'^': 'caret',
+				'&': 'amp',
+				'*': 'asterisk',
+				'(': 'open-paren',
+				')': 'close-paren',
+				'-': 'dash',
+				'_': 'underscore',
+				'+': 'plus',
+				'=': 'equals',
+				'{': 'open-brace',
+				'}': 'close-brace',
+				'[': 'open-bracket',
+				']': 'close-bracket',
+				'|': 'pipe',
+				'\\': 'backslash',
+				'"': 'double-quote',
+				'\'': 'single-quote',
+				';': 'semi-colon',
+				':': 'colon',
+				'?': 'question-mark',
+				'/': 'forward-slash',
+				'>': 'greater-than',
+				'.': 'period',
+				'<': 'less-than',
+				'`': 'backtick',
+				'~': 'tilde',
+			};
+
+			function convertKey(event) {
+				var key = event.keyIdentifier || event.key;
+				if (key.indexOf('U+') != -1)
+					return KEY_MAP[String.fromCharCode(parseInt(key.replace("U+", "0x")))];
+				if (KEY_MAP[key])
+					return KEY_MAP[key];
+				return key.toLowerCase();
+			}
+
+
+			function handleKeyDown(e) {
+				var deck = document.querySelector("cmv-deck");
+				var key = convertKey(e);
+				switch(key) {
+					case "left": deck.prevSlide(); break;
+					case "right": deck.nextSlide(); break;
+				}
+				console.log(key);
+			}
+
 			window.addEventListener("hashchange", updateSlideFromHash);
+			window.addEventListener('keydown', handleKeyDown);
 		})();
 	</script>
 </polymer-element>
