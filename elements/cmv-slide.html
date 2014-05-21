@@ -1,32 +1,29 @@
 <polymer-element name="cmv-slide">
-  <template>
-    <style>
-      :host {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        display: block;
-        text-align: center;
-        transition: 1s;
-        -webkit-transform: rotateY(0deg);
-        width: 100%;
-        z-index: 1000;
-      }
-      :host.previous {
-        -webkit-transform: translate3d(-1200px, 0, 0) rotateY(-85deg) ;
-      }
-      :host.next {
-        -webkit-transform: translate3d(1200px, 0, 0) rotateY(85deg) ;
-      }
-    </style>
-    <content></content>
-  </template>
-  <script>  
-    Polymer('cmv-slide', {
-      ready: function() {
-        //console.log(this.querySelector("content").offsetHeight);
-
-      }
-    });
-  </script>
+	<template>
+		<style>
+			:host {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				display: block;
+				text-align: center;
+				transition: 1s;
+				-webkit-transform: rotateY(0deg);
+				width: 100%;
+				z-index: 1000;
+			}
+			:host(.previous) {
+				-webkit-transform: translate(-1200px,0) rotateY(-85deg);
+				transform: translate(-1200px,0) rotateY(-85deg);
+			}
+			:host(.next) {
+				-webkit-transform: translate(1200px,0) rotateY(85deg);
+				transform: translate(1200px,0) rotateY(85deg);
+			}
+		</style>
+		<content></content>
+	</template>
+	<script>
+		Polymer('cmv-slide', {});
+	</script>
 </polymer-element>
