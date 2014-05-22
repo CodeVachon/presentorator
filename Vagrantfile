@@ -8,5 +8,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 	config.vm.network :private_network, ip: "192.168.3.10"
 	config.vm.hostname = "presentorator"
-	config.hostsupdater.aliases = ["presentorator"]
+
+	if !Vagrant.has_plugin?('vagrant-hostsupdater')
+		puts "vagrant-hostsupdater missing, please install the vagrant-hostsupdater plugin!"
+		puts "Run this command in your terminal / Command Line:"
+		puts "vagrant plugin install vagrant-hostsupdater"
+	else
+		config.hostsupdater.aliases = ["presentorator"]
+	end
 end
