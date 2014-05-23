@@ -13,19 +13,51 @@
 			#slideControl {
 				display: block;
 				position: fixed;
-				bottom: 0;
-				right: 0;
+				bottom: 2em;
+				right: 2em;
 				z-index: 1001;
 			}
+			#slideControl p {
+				text-align: center;
+			}
+			#slideControl div {
+				margin: 0 1em;
+				height: 0;
+				width: 0;
+				display: block;
+				border: none;
+				outline: none;
+				opacity: 0.75;
+				text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+				float: left;
+				cursor: pointer;
+			}
+			#slideControl div:hover {
+				opacity: 0.95;
+			}
 			#slideControl .disabled {
-				opacity: 0.5;
+				opacity: 0.25;
+			}
+			#slideControl .disabled:hover {
+				opacity: 0.25;
+			}
+			#slideControl #btnPrev { 
+				border-right: 16px #333 solid;
+				border-top: 16px transparent solid;
+				border-bottom: 16px transparent solid;
+			}
+			#slideControl #btnNext { 
+				border-left: 16px #333 solid;
+				border-top: 16px transparent solid;
+				border-bottom: 16px transparent solid;
 			}
 		</style>
 		<content></content>
-		<div id='slideControl' if="{{ slideCount > 1}}">
+		<div id='slideControl' if="{{ slideCount > 1 }}">
 			<p>{{currentSlide}} of {{slideCount}}</p>
-			<button on-click="{{prevSlide}}" id="btnPrev">Prev</button>
-			<button on-click="{{nextSlide}}" id="btnNext">Next</button>
+
+			<div on-click="{{prevSlide}}" id="btnPrev"></div>
+			<div on-click="{{nextSlide}}" id="btnNext"></div>
 		</div>
 	</template>
 	<script>
