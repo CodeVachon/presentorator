@@ -1,7 +1,23 @@
-/*cmv-deck {
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-}*/
+cmv-deck {
+	background: -webkit-radial-gradient(#666, #333); /* Safari 5.1 to 6.0 */
+	background: -o-radial-gradient(#666, #333); /* For Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(#666, #333); /* For Firefox 3.6 to 15 */
+	background: radial-gradient(#666, #333); /* Standard syntax */
+	color: #fff;
+}
+cmv-slide {
+	font-size: 2em;
+}
+h1,h2,h3,h4,h5,h6 {
+	text-shadow: 0.2em 0.2em 0.3em rgba(0,0,0,0.5);
+	margin:0;
+	padding: 0;
+}
+
+a {
+	color: #fff;
+}
+
+ul li {
+	margin: 0.5em 0;
+}
