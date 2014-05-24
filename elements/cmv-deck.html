@@ -68,6 +68,7 @@
 				ready: function() {
 					this.slideCount = this.getSlides().length;
 
+					/* Get the Slide No from Hash if it Exists */
 					var hash = window.location.hash;
 					var match = hash.match(/^#\/slide\/(\d+)$/) || [];
 					var currentSlide = parseInt(match[1], 10) || 1;
@@ -204,7 +205,6 @@
 					return KEY_MAP[key];
 				return key.toLowerCase();
 			}
-
 
 			function handleKeyDown(e) {
 				var deck = document.querySelector("cmv-deck");
