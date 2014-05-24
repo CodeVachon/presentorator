@@ -138,7 +138,6 @@
 					var slide = this.getSlides()[(this.currentSlide-1)];
 					if (!slide) return;
 					var steps = slide.querySelectorAll(".steps li");
-					console.log(steps);
 					for (var i=0; i < steps.length; ++i) {
 						if (steps[i].style.display == "none") {
 							steps[i].style.display = "list-item";
