@@ -128,7 +128,25 @@
 						} else {
 							slide.classList.add("current");
 						}
+						slide.querySelectorAll("ul.steps li").array().forEach(function(step,j) {
+							if (!step.style.display) {
+								step.style.display = "none";
+							}
+						});
 					});
+				},
+				nextStep: function() {
+					var slide = this.getSlides()[(this.currentSlide-1)];
+					if (!slide) return;
+					var steps = slide.querySelectorAll(".steps li");
+					console.log(steps);
+					for (var i=0; i < steps.length; ++i) {
+						if (steps[i].style.display == "none") {
+							steps[i].style.display = "list-item";
+							return true;
+						}
+					}
+					return false;
 				}
 			});
 
@@ -183,7 +201,7 @@
 			function convertKey(event) {
 				var key = event.keyIdentifier || event.key;
 				if (key.indexOf('U+') != -1)
-					return KEY_MAP[String.fromCharCode(parseInt(key.replace("U+", "0x")))];
+					return KEY_MAP[parseInt(key.replace("U+", ""))];
 				if (KEY_MAP[key])
 					return KEY_MAP[key];
 				return key.toLowerCase();
@@ -196,6 +214,11 @@
 				switch(key) {
 					case "left": deck.prevSlide(); break;
 					case "right": deck.nextSlide(); break;
+					case "space": 
+						if (!deck.nextStep()) {
+							deck.nextSlide();
+						} 
+						break;
 				}
 				console.log(key);
 			}
