@@ -68,7 +68,12 @@
 				ready: function() {
 					console.log("Init Deck Fires");
 					this.slideCount = this.getSlides().length;
-					this.setSlide(1);
+
+					var hash = window.location.hash;
+					var match = hash.match(/^#\/slide\/(\d+)$/) || [];
+					var currentSlide = parseInt(match[1], 10) || 1;
+				
+					this.setSlide(currentSlide);
 				},
 				getSlides: function() {
 					return this.querySelectorAll('cmv-slide').array();
