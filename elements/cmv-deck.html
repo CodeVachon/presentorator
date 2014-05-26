@@ -102,6 +102,13 @@
 				currentSlide:0,
 				slideCount:0,
 				ready: function() {
+					var btnColor = window.getComputedStyle(this).color || "#333";
+					this.$.btnUp.style.setProperty("border-bottom-color",btnColor);
+					this.$.btnDown.style.setProperty("border-top-color",btnColor);
+					this.$.btnPrev.style.setProperty("border-right-color",btnColor);
+					this.$.btnNext.style.setProperty("border-left-color",btnColor);
+					this.$.btnSlideCount.style.setProperty("background-color",btnColor);
+
 					this.slideCount = this.getSlides().length;
 
 					/* Get the Slide No from Hash if it Exists */
