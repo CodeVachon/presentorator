@@ -18,9 +18,17 @@
 				-webkit-transform: translate(-1200px,0) translateZ(1200px) rotateY(-85deg);
 				transform: translate(-1200px,0) translateZ(1200px) rotateY(-85deg);
 			}
+			:host-context(cmv-slidegroup):host(.previous) {
+				-webkit-transform: translate(0,-1200px) translateZ(1200px) rotateX(-85deg);
+				transform: translate(0,-1200px) translateZ(1200px) rotateX(-85deg);
+			}
 			:host(.next) {
 				-webkit-transform: translate(1200px,0) translateZ(1200px) rotateY(85deg);
 				transform: translate(1200px,0) translateZ(1200px) rotateY(85deg);
+			}
+			:host-context(cmv-slidegroup):host(.next) {
+				-webkit-transform: translate(0,1200px) translateZ(1200px) rotateX(-85deg);
+				transform: translate(0,1200px) translateZ(1200px) rotateX(-85deg);
 			}
 		</style>
 		<content></content>

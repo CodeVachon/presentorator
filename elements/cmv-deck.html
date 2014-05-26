@@ -109,6 +109,12 @@
 					this.$.btnNext.style.setProperty("border-left-color",btnColor);
 					this.$.btnSlideCount.style.setProperty("background-color",btnColor);
 
+					this.getSlides().forEach(function(element) {
+						if (element.tagName != "CMV-SLIDE" && element.tagName != "CMV-SLIDEGROUP") {
+							element.remove;
+						}
+					});
+
 					this.slideCount = this.getSlides().length;
 
 					/* Get the Slide No from Hash if it Exists */
@@ -119,7 +125,11 @@
 					this.setSlide(currentSlide);
 				},
 				getSlides: function() {
-					return this.querySelectorAll('cmv-slide').array();
+					return this.children.array();
+					//return this.querySelectorAll('::content > cmv-slide, ::content > cmv-slidegroup').array();
+				},
+				getActiveSlide: function(slideNo) {
+					return this.getSlides()[slideNo-1];
 				},
 				setSlide: function(slideNo) {
 					this.currentSlide = slideNo;
@@ -143,8 +153,13 @@
 					var btnUp = this.$.btnUp;
 					var btnDown = this.$.btnDown;
 					
-					btnUp.className = "disabled";
-					btnDown.className = "disabled";
+					if (this.getActiveSlide().tagName == "CMV-SLIDEGROUP") {
+						btnUp.className = "";
+						btnDown.className = "";
+					} else {
+						btnUp.className = "disabled";
+						btnDown.className = "disabled";
+					}
 
 					if (this.currentSlide <= 1) {
 						btnPrev.className = "disabled";
@@ -166,8 +181,8 @@
 					this.updateSlides();
 				},
 				updateSlides: function() {
-					var currentSlideNo = (this.currentSlide-1);
 					this.getSlides().forEach(function(slide, i) {
+
 						slide.classList.remove("previous", "current", "next");
 						if (i < currentSlideNo) {
 							slide.classList.add("previous");
@@ -176,6 +191,7 @@
 						} else {
 							slide.classList.add("current");
 						}
+
 						slide.querySelectorAll("ul.steps li").array().forEach(function(step,j) {
 							if (!step.style.display) {
 								step.style.display = "none";

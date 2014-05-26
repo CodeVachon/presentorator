@@ -1,0 +1,86 @@
+<polymer-element name="cmv-slidegroup">
+	<template>
+		<style>
+			:host {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				display: block;
+				transition: 0.6s;
+				-webkit-transform: rotateZ(0deg);
+				z-index: 1000;
+				padding: 2em;
+				overflow: auto;
+			}
+			:host(.previous) {
+				-webkit-transform: translate(-1200px,0) translateZ(1200px) rotateY(-85deg);
+				transform: translate(-1200px,0) translateZ(1200px) rotateY(-85deg);
+			}
+			:host(.next) {
+				-webkit-transform: translate(1200px,0) translateZ(1200px) rotateY(85deg);
+				transform: translate(1200px,0) translateZ(1200px) rotateY(85deg);
+			}
+		</style>
+		<content></content>
+	</template>
+	<script>
+		Polymer('cmv-slidegroup', {
+			currentSlide:0,
+			slideCount:0,
+			ready: function() {
+				console.log('slidegroup ready');
+				this.getSlides().forEach(function(slide,i){
+					if (i == 0) {
+						slide.classList.add("current");
+					} else {
+						slide.classList.add("next");
+					}
+				});
+			},
+			getSlides: function() {
+				return this.children.array();
+			},
+			getActiveSlide: function(slideNo) {
+				return this.getSlides()[slideNo-1];
+			},
+			setSlide: function(slideNo) {
+				this.currentSlide = slideNo;
+				this.updateSlides();
+			},
+			prevSlide: function() {
+				if (this.currentSlide > 1) {
+					this.currentSlide--;
+				}
+				this.updateSlides();
+			},
+			nextSlide: function() {
+				if (this.currentSlide < this.slideCount) {
+					this.currentSlide++;
+				}
+				this.updateSlides();
+			},
+			updateSlides: function() {
+				var currentSlideNo = (this.currentSlide-1);
+				this.getSlides().forEach(function(slide, i) {
+
+					slide.classList.remove("previous", "current", "next");
+					if (i < currentSlideNo) {
+						slide.classList.add("previous");
+					} else if (i > currentSlideNo) {
+						slide.classList.add("next");
+					} else {
+						slide.classList.add("current");
+					}
+
+					slide.querySelectorAll("ul.steps li").array().forEach(function(step,j) {
+						if (!step.style.display) {
+							step.style.display = "none";
+						}
+					});
+				});
+			}
+		});
+	</script>
+</polymer-element>
