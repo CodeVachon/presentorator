@@ -17,22 +17,28 @@
 				right: 2em;
 				z-index: 1001;
 			}
-			#slideControl p {
-				text-align: center;
+			#slideControl > div {
+				height: 32px;
+				clear: left;
 			}
-			#slideControl div {
-				margin: 0 1em;
+			#slideControl > div:first-child {
+				height: 24px;
+			}
+			#slideControl > div:last-child {
+				height: 24px;
+			}
+			#slideControl span {
+				margin: 0 0.25em;
 				height: 0;
 				width: 0;
 				display: block;
 				border: none;
 				outline: none;
 				opacity: 0.75;
-				text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 				float: left;
 				cursor: pointer;
 			}
-			#slideControl div:hover {
+			#slideControl span:hover {
 				opacity: 0.95;
 			}
 			#slideControl .disabled {
@@ -40,6 +46,15 @@
 			}
 			#slideControl .disabled:hover {
 				opacity: 0.25;
+			}
+			#slideControl #btnSlideCount {
+				background-color: #333;
+				color: rgba(128,128,128,0.5);
+				border-radius: 1em;
+				width: 32px;
+				line-height: 32px;
+				height: 32px;
+				text-align: center;
 			}
 			#slideControl #btnPrev { 
 				border-right: 16px #333 solid;
@@ -51,13 +66,34 @@
 				border-top: 16px transparent solid;
 				border-bottom: 16px transparent solid;
 			}
+			#slideControl #btnUp { 
+				border-right: 16px transparent solid;
+				border-left: 16px transparent solid;
+				border-bottom: 16px #333 solid;
+				float: none;
+				margin: 0.25em auto;
+			}
+			#slideControl #btnDown { 
+				border-right: 16px transparent solid;
+				border-left: 16px transparent solid;
+				border-top: 16px #333 solid;
+				float: none;
+				margin: 0.5em auto 0 auto;
+			}
 		</style>
 		<content></content>
 		<div id='slideControl' if="{{ slideCount > 1 }}">
-			<p>{{currentSlide}} of {{slideCount}}</p>
-
-			<div on-click="{{prevSlide}}" id="btnPrev"></div>
-			<div on-click="{{nextSlide}}" id="btnNext"></div>
+			<div>
+				<span id="btnUp"></span>
+			</div>
+			<div>
+				<span on-click="{{prevSlide}}" id="btnPrev"></span>
+				<span id='btnSlideCount'>{{currentSlide}}</span>
+				<span on-click="{{nextSlide}}" id="btnNext"></span>
+			</div>
+			<div>
+				<span id="btnDown"></span>
+			</div>
 		</div>
 	</template>
 	<script>
@@ -97,7 +133,12 @@
 				updateSlideControl: function() {
 					var btnPrev = this.$.btnPrev;
 					var btnNext = this.$.btnNext;
+					var btnUp = this.$.btnUp;
+					var btnDown = this.$.btnDown;
 					
+					btnUp.className = "disabled";
+					btnDown.className = "disabled";
+
 					if (this.currentSlide <= 1) {
 						btnPrev.className = "disabled";
 					} else {
