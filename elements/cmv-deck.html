@@ -128,8 +128,8 @@
 					return this.children.array();
 					//return this.querySelectorAll('::content > cmv-slide, ::content > cmv-slidegroup').array();
 				},
-				getActiveSlide: function(slideNo) {
-					return this.getSlides()[slideNo-1];
+				getActiveSlide: function() {
+					return this.getSlides()[this.currentSlide-1];
 				},
 				setSlide: function(slideNo) {
 					this.currentSlide = slideNo;
@@ -181,6 +181,7 @@
 					this.updateSlides();
 				},
 				updateSlides: function() {
+					var currentSlideNo = this.currentSlide-1;
 					this.getSlides().forEach(function(slide, i) {
 
 						slide.classList.remove("previous", "current", "next");
