@@ -31,19 +31,25 @@
 			slideCount:0,
 			ready: function() {
 				console.log('slidegroup ready');
-				this.getSlides().forEach(function(slide,i){
+				var slides = this.getSlides();
+				this.slideCount = slides.length;
+				slides.forEach(function(slide,i){
 					if (i == 0) {
 						slide.classList.add("current");
 					} else {
 						slide.classList.add("next");
 					}
 				});
+				this.setSlide(1);
 			},
 			getSlides: function() {
 				return this.children.array();
 			},
-			getActiveSlide: function(slideNo) {
-				return this.getSlides()[slideNo-1];
+			getActiveSlide: function() {
+				return this.getSlides()[this.currentSlide-1];
+			},
+			isActiveSlideLastSlide: function() {
+				return (this.currentSlide == this.slideCount);
 			},
 			setSlide: function(slideNo) {
 				this.currentSlide = slideNo;
@@ -80,6 +86,22 @@
 						}
 					});
 				});
+			},
+			nextStep: function() {
+				var slide = this.getActiveSlide();
+				console.log("SlideGroup-NextStep");
+				if (!slide) return;
+
+				console.log("SlideGroup-NextStep-HasSlide");
+
+				var steps = slide.querySelectorAll(".steps li");
+				for (var i=0; i < steps.length; ++i) {
+					if (steps[i].style.display == "none") {
+						steps[i].style.display = "list-item";
+						return true;
+					}
+				}
+				return false;
 			}
 		});
 	</script>

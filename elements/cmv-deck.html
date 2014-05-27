@@ -84,7 +84,7 @@
 		<content></content>
 		<div id='slideControl' if="{{ slideCount > 1 }}">
 			<div>
-				<span id="btnUp"></span>
+				<span on-click="{{slideUp}}" id="btnUp"></span>
 			</div>
 			<div>
 				<span on-click="{{prevSlide}}" id="btnPrev"></span>
@@ -92,7 +92,7 @@
 				<span on-click="{{nextSlide}}" id="btnNext"></span>
 			</div>
 			<div>
-				<span id="btnDown"></span>
+				<span on-click="{{slideDown}}" id="btnDown"></span>
 			</div>
 		</div>
 	</template>
@@ -131,6 +131,9 @@
 				getActiveSlide: function() {
 					return this.getSlides()[this.currentSlide-1];
 				},
+				isActiveSlideAGroup: function() {
+					return (this.getActiveSlide().tagName == "CMV-SLIDEGROUP");
+				},
 				setSlide: function(slideNo) {
 					this.currentSlide = slideNo;
 					this.updateSlideControl();
@@ -147,15 +150,43 @@
 					}
 					this.updateSlideControl();
 				},
+				slideUp: function() {
+					if (this.isActiveSlideAGroup()) { 
+						this.getActiveSlide().prevSlide();
+						this.updateSlideControl(); 
+					}
+					this.updateSlideControl();
+				},
+				slideDown: function() {
+					if (this.isActiveSlideAGroup()) {
+						this.getActiveSlide().nextSlide(); 
+						this.updateSlideControl(); 
+					}
+					this.updateSlideControl();
+				},
 				updateSlideControl: function() {
 					var btnPrev = this.$.btnPrev;
 					var btnNext = this.$.btnNext;
 					var btnUp = this.$.btnUp;
 					var btnDown = this.$.btnDown;
 					
-					if (this.getActiveSlide().tagName == "CMV-SLIDEGROUP") {
-						btnUp.className = "";
-						btnDown.className = "";
+					var activeSlide = this.getActiveSlide();
+					if (activeSlide.tagName == "CMV-SLIDEGROUP") {
+						if (activeSlide.slideCount == 0) {
+							btnUp.className = "disabled";
+							btnDown.className = "disabled";
+						} else {
+							if (activeSlide.currentSlide == 1) {
+								btnUp.className = "disabled";
+							} else {
+								btnUp.className = "";
+							}
+							if (activeSlide.currentSlide == activeSlide.slideCount) {
+								btnDown.className = "disabled";
+							} else {
+								btnDown.className = "";
+							}
+						}
 					} else {
 						btnUp.className = "disabled";
 						btnDown.className = "disabled";
@@ -201,8 +232,14 @@
 					});
 				},
 				nextStep: function() {
-					var slide = this.getSlides()[(this.currentSlide-1)];
+					var slide = this.getActiveSlide();
 					if (!slide) return;
+
+					// if slide group... iterate group first...
+					if (slide.tagName == "CMV-SLIDEGROUP") {
+						return slide.nextStep();
+					}
+
 					var steps = slide.querySelectorAll(".steps li");
 					for (var i=0; i < steps.length; ++i) {
 						if (steps[i].style.display == "none") {
@@ -278,9 +315,15 @@
 				switch(key) {
 					case "left": deck.prevSlide(); break;
 					case "right": deck.nextSlide(); break;
+					case "up": deck.slideUp(); break;
+					case "down": deck.slideDown(); break;
 					case "space": 
 						if (!deck.nextStep()) {
-							deck.nextSlide();
+							if (deck.isActiveSlideAGroup() && !deck.getActiveSlide().isActiveSlideLastSlide()) {
+								deck.getActiveSlide().nextSlide(); 
+							} else {
+								deck.nextSlide();
+							}
 						} 
 						break;
 				}
