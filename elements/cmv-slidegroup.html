@@ -30,7 +30,6 @@
 			currentSlide:0,
 			slideCount:0,
 			ready: function() {
-				console.log('slidegroup ready');
 				var slides = this.getSlides();
 				this.slideCount = slides.length;
 				slides.forEach(function(slide,i){
@@ -89,10 +88,7 @@
 			},
 			nextStep: function() {
 				var slide = this.getActiveSlide();
-				console.log("SlideGroup-NextStep");
 				if (!slide) return;
-
-				console.log("SlideGroup-NextStep-HasSlide");
 
 				var steps = slide.querySelectorAll(".steps li");
 				for (var i=0; i < steps.length; ++i) {
