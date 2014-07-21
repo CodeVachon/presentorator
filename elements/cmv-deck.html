@@ -39,7 +39,10 @@
 				cursor: pointer;
 			}
 			#slideControl span:hover {
-				opacity: 0.95;
+				opacity: 0.9;
+			}
+			#slideControl span:active {
+				opacity: 1;
 			}
 			#slideControl .disabled {
 				opacity: 0.25;
@@ -57,42 +60,56 @@
 				text-align: center;
 			}
 			#slideControl #btnPrev { 
-				border-right: 16px #333 solid;
+				border-right: 16px #eee solid;
 				border-top: 16px transparent solid;
 				border-bottom: 16px transparent solid;
 			}
 			#slideControl #btnNext { 
-				border-left: 16px #333 solid;
+				border-left: 16px #eee solid;
 				border-top: 16px transparent solid;
 				border-bottom: 16px transparent solid;
 			}
 			#slideControl #btnUp { 
 				border-right: 16px transparent solid;
 				border-left: 16px transparent solid;
-				border-bottom: 16px #333 solid;
+				border-bottom: 16px #eee solid;
 				float: none;
 				margin: 0.25em auto;
 			}
 			#slideControl #btnDown { 
 				border-right: 16px transparent solid;
 				border-left: 16px transparent solid;
-				border-top: 16px #333 solid;
+				border-top: 16px #eee solid;
 				float: none;
 				margin: 0.5em auto 0 auto;
 			}
+			#curtin {
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-color: #333;
+				z-index: 1002;
+			}
+			#curtin.hide {
+				transition: 1s;
+				background-color: transparent;
+			}
 		</style>
+		<div id='curtin'></div>
 		<content></content>
 		<div id='slideControl' if="{{ slideCount > 1 }}">
 			<div>
-				<span on-click="{{slideUp}}" id="btnUp"></span>
+				<span on-click="{{slideUp}}" id="btnUp" class='btn'></span>
 			</div>
 			<div>
-				<span on-click="{{prevSlide}}" id="btnPrev"></span>
-				<span id='btnSlideCount'>{{currentSlide}}</span>
-				<span on-click="{{nextSlide}}" id="btnNext"></span>
+				<span on-click="{{prevSlide}}" id="btnPrev" class='btn'></span>
+				<span on-click="{{fireNextStep}}" id='btnSlideCount' class='btn'>{{currentSlide}}</span>
+				<span on-click="{{nextSlide}}" id="btnNext" class='btn'></span>
 			</div>
 			<div>
-				<span on-click="{{slideDown}}" id="btnDown"></span>
+				<span on-click="{{slideDown}}" id="btnDown" class='btn'></span>
 			</div>
 		</div>
 	</template>
@@ -101,14 +118,24 @@
 			Polymer("cmv-deck", {
 				currentSlide:0,
 				slideCount:0,
-				ready: function() {
-					var btnColor = window.getComputedStyle(this).color || "#333";
+				domReady: function() {
+					var btnColor = window.getComputedStyle(this).color || "#eee";
+					//var txtColor = window.getComputedStyle(this)["background"] || "#333";
 					this.$.btnUp.style.setProperty("border-bottom-color",btnColor);
 					this.$.btnDown.style.setProperty("border-top-color",btnColor);
 					this.$.btnPrev.style.setProperty("border-right-color",btnColor);
 					this.$.btnNext.style.setProperty("border-left-color",btnColor);
 					this.$.btnSlideCount.style.setProperty("background-color",btnColor);
-
+					//this.$.btnSlideCount.style.setProperty("color",txtColor);
+					var _polyThis = this;
+					setTimeout(function() {
+						_polyThis.$.curtin.classList.add("hide");
+						setTimeout(function() {
+							_polyThis.$.curtin.style["z-index"] = 0;
+						},600);
+					},400);
+				},
+				ready: function() {
 					this.getSlides().forEach(function(element) {
 						if (element.tagName != "CMV-SLIDE" && element.tagName != "CMV-SLIDEGROUP") {
 							element.remove;
@@ -248,6 +275,15 @@
 						}
 					}
 					return false;
+				},
+				fireNextStep: function() {
+					if (!this.nextStep()) {
+						if (this.isActiveSlideAGroup() && !this.getActiveSlide().isActiveSlideLastSlide()) {
+							this.getActiveSlide().nextSlide(); 
+						} else {
+							this.nextSlide();
+						}
+					}
 				}
 			});
 
