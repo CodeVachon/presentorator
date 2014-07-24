@@ -53,11 +53,44 @@
 			#slideControl #btnSlideCount {
 				background-color: #333;
 				color: rgba(128,128,128,0.5);
-				border-radius: 1em;
+				border-radius: 50%;
 				width: 32px;
 				line-height: 32px;
 				height: 32px;
 				text-align: center;
+				position: relative;
+				border: 2px #f00 solid;
+				z-index: 1002;
+				display: block;
+				overflow: hidden;
+				padding: 0;
+				opacity: 1;
+			}
+			#slideControl #btnSlideCount span {
+				position: absolute;
+				display: block;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				z-index: 1003;
+				width:auto;
+				height: auto;
+				float: none;
+				margin: 0;
+				padding: 0;
+			}
+			#slideControl #btnSlideCount span.sub-counter {
+				background-color: #0f0;
+				transition: 1s;
+			}
+			#slideControl #btnSlideCount span.counter-value {
+				background-color: #00f;
+				margin: 3px;
+				border-radius: 50%;
+				line-height: 25px;
+				color: #333;
+				opacity: 1;
 			}
 			#slideControl #btnPrev { 
 				border-right: 16px #eee solid;
@@ -105,7 +138,10 @@
 			</div>
 			<div>
 				<span on-click="{{prevSlide}}" id="btnPrev" class='btn'></span>
-				<span on-click="{{fireNextStep}}" id='btnSlideCount' class='btn'>{{currentSlide}}</span>
+				<span on-click="{{fireNextStep}}" id='btnSlideCount' class='btn'>
+					<span class='sub-counter' id="subCounterValue"></span>
+					<span class='counter-value' id="currentSlideValue">{{currentSlide}}</span>
+				</span>
 				<span on-click="{{nextSlide}}" id="btnNext" class='btn'></span>
 			</div>
 			<div>
@@ -118,7 +154,18 @@
 			Polymer("cmv-deck", {
 				currentSlide:0,
 				slideCount:0,
+				subcountColours: {
+					normal: "#fff",
+					active: "#0f0",
+					inactive: "#333"
+				},
 				domReady: function() {
+					/* Get the Slide No from Hash if it Exists */
+					var hash = window.location.hash;
+					var match = hash.match(/^#\/slide\/(\d+)$/) || [];
+					var currentSlide = parseInt(match[1], 10) || 1;
+					this.setSlide(currentSlide);
+
 					var btnColor = window.getComputedStyle(this).color || "#eee";
 					//var txtColor = window.getComputedStyle(this)["background"] || "#333";
 					this.$.btnUp.style.setProperty("border-bottom-color",btnColor);
@@ -126,6 +173,9 @@
 					this.$.btnPrev.style.setProperty("border-right-color",btnColor);
 					this.$.btnNext.style.setProperty("border-left-color",btnColor);
 					this.$.btnSlideCount.style.setProperty("background-color",btnColor);
+					this.$.btnSlideCount.style.setProperty("border-color",btnColor);
+					this.$.currentSlideValue.style.setProperty("background-color",btnColor);
+					this.$.btnSlideCount.style.setProperty("background",this.subcountColours.inactive);
 					//this.$.btnSlideCount.style.setProperty("color",txtColor);
 					var _polyThis = this;
 					setTimeout(function() {
@@ -134,6 +184,7 @@
 							_polyThis.$.curtin.style["z-index"] = 0;
 						},600);
 					},400);
+					this.updateSubCounter();
 				},
 				ready: function() {
 					this.getSlides().forEach(function(element) {
@@ -143,13 +194,6 @@
 					});
 
 					this.slideCount = this.getSlides().length;
-
-					/* Get the Slide No from Hash if it Exists */
-					var hash = window.location.hash;
-					var match = hash.match(/^#\/slide\/(\d+)$/) || [];
-					var currentSlide = parseInt(match[1], 10) || 1;
-				
-					this.setSlide(currentSlide);
 				},
 				getSlides: function() {
 					return this.children.array();
@@ -236,7 +280,47 @@
 					} else {
 						window.location.replace("#");
 					}
+
+					this.updateSubCounter();
 					this.updateSlides();
+				},
+				updateSubCounter: function() {
+					console.log(this.isActiveSlideAGroup());
+					this.$.subCounterValue.style.setProperty("background",this.subcountColours.inactive);
+
+					var activeSlide = this.getActiveSlide();
+					if (activeSlide.tagName == "CMV-SLIDEGROUP") {
+						var activeSlide = this.getActiveSlide().getActiveSlide();
+					}
+					var _totalsteps = activeSlide.querySelectorAll(".steps li").length;
+					var _activesteps = activeSlide.querySelectorAll(".steps li.visible-step").length;
+					if (_totalsteps > 0) {
+						var _value = parseInt((_activesteps/_totalsteps)*100);
+						if (_value > 100 || _value < 0) { _value == 100; }
+
+						var backgroundColor = this.subcountColours.inactive;
+						var activeBackgroundColor = this.subcountColours.active;
+						var bg1_deg = 90;
+						var bg1_bgcolor = backgroundColor;
+						var bg2_deg = 90;
+						var bg2_bgcolor = activeBackgroundColor;
+						if (_value <= 50) {
+							bg2_deg = 90 + (360*(_value/100));
+						} else {
+							bg1_deg = 270;
+							var bg1_bgcolor = activeBackgroundColor;
+							bg2_deg = 270 + ((360*(_value/100))-180);
+						}
+
+						var _backgroundGradient = "linear-gradient(" + bg1_deg + "deg, " + bg1_bgcolor + " 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)),linear-gradient(" + bg2_deg + "deg, " + bg2_bgcolor + " 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0))";
+					} else {
+						var _value = 100;
+						var _backgroundGradient = this.subcountColours.normal;
+					}
+					console.log("step: " + _activesteps + " of " + _totalsteps + "("+_value+"%)");
+
+					this.$.subCounterValue.style.setProperty("background",_backgroundGradient);
+					
 				},
 				updateSlides: function() {
 					var currentSlideNo = this.currentSlide-1;
@@ -264,6 +348,7 @@
 
 					// if slide group... iterate group first...
 					if (slide.tagName == "CMV-SLIDEGROUP") {
+						this.$.subCounterValue.style.setProperty("background","#333");
 						return slide.nextStep();
 					}
 
@@ -271,6 +356,7 @@
 					for (var i=0; i < steps.length; ++i) {
 						if (steps[i].style.display == "none") {
 							steps[i].style.display = "list-item";
+							steps[i].classList.add("visible-step");
 							return true;
 						}
 					}
@@ -284,6 +370,7 @@
 							this.nextSlide();
 						}
 					}
+					this.updateSlideControl();
 				}
 			});
 
@@ -354,13 +441,17 @@
 					case "up": deck.slideUp(); break;
 					case "down": deck.slideDown(); break;
 					case "space": 
+						deck.fireNextStep();
+						/*
 						if (!deck.nextStep()) {
+
 							if (deck.isActiveSlideAGroup() && !deck.getActiveSlide().isActiveSlideLastSlide()) {
 								deck.getActiveSlide().nextSlide(); 
 							} else {
 								deck.nextSlide();
 							}
 						} 
+						*/
 						break;
 				}
 			}

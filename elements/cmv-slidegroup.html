@@ -31,7 +31,7 @@
 	<script>
 		Polymer('cmv-slidegroup', {
 			currentSlide:0,
-			slideCount:0,
+			slideCount:1,
 			ready: function() {
 				var slides = this.getSlides();
 				this.slideCount = slides.length;
@@ -97,6 +97,7 @@
 				for (var i=0; i < steps.length; ++i) {
 					if (steps[i].style.display == "none") {
 						steps[i].style.display = "list-item";
+						steps[i].classList.add("visible-step");
 						return true;
 					}
 				}
