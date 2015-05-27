@@ -1,0 +1,19 @@
+{
+  "name": "core-drawer-panel",
+  "private": true,
+  "dependencies": {
+    "core-selector": "Polymer/core-selector#0.2.4",
+    "core-media-query": "Polymer/core-media-query#0.2.4"
+  },
+  "version": "0.2.4",
+  "homepage": "https://github.com/Polymer/core-drawer-panel",
+  "_release": "0.2.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.2.4",
+    "commit": "9ca97f007ebf23f8d6dd3b95768ad2d7a0de1f62"
+  },
+  "_source": "git://github.com/Polymer/core-drawer-panel.git",
+  "_target": "0.2.4",
+  "_originalSource": "Polymer/core-drawer-panel"
+}
