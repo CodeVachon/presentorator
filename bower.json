@@ -22,5 +22,8 @@
   "dependencies": {
     "polymer": "Polymer/polymer#0.2.4",
     "core-elements": "Polymer/core-elements#0.2.4"
+  },
+  "resolutions": {
+    "polymer": "0.2.4"
   }
 }
