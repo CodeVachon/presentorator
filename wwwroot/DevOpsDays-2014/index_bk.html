@@ -1,0 +1,360 @@
+
+<html>
+  <head>
+    <title>DevOpsDays Toronto 2014</title>
+    <script src="/bower_components/platform/platform.js"></script>
+    <link rel="import" href="/bower_components/polymer/polymer.html"/>
+    <link rel="import" href="/elements/cmv-deck.html"/>
+    <link rel="import" href="/elements/cmv-slidegroup.html"/>
+    <link rel="import" href="/elements/cmv-slide.html"/>
+    <style>@import url('/css/default.css');</style>
+  </head>
+  <body>
+    <cmv-deck>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>DevOpsDays Toronto 2014</h1>
+            <p>Friday, September 12 to Saturday, September 13</p>
+          </header>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>Keynote</h1>
+            <p>Luke Kanies</p>
+            <p>Founder and CEO of Puppet</p>
+          </header>
+          <ul class="steps">
+            <li>No one knows what devops is, but everyones excited to have it solve thier problems.</li>
+            <li>Short Cycle Times result in faster growth and learning</li>
+            <li>DevOps is like the Industrial Revolution
+              <ul>
+                <li>Developers and Companies are moving towards specilization</li>
+                <li>A Specialist will produce a valuable product</li>
+              </ul>
+            </li>
+          </ul>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>DevOps Against Inhumanity</h1>
+            <p>Julian Dunn</p>
+            <p>From: Chef</p>
+          </header>
+          <ul class="steps">
+            <li>Ticketing Systems being used as a tool to opress people</li>
+            <li>On Call Sucks!</li>
+            <li>Agile as a way to manage cost</li>
+            <li>Dev Teams 100% responsible without any authority</li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h2>How do you make the inhuman more humane</h2>
+          </header>
+          <ul class="steps">
+            <li>Develop Relationships with other Departments</li>
+            <li>Switch: How to make change with change is hard [book]</li>
+            <li>Do not be afraid to try new things</li>
+          </ul>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>Here, There, Everywhere</h1>
+            <h2>Rules and tools for Distributed Teams</h2>
+            <p>Joel Perras</p>
+          </header>
+          <ul class="steps">
+            <li>Fictive Kin: Work hard, be Kind</li>
+            <li>11 employees accross the world</li>
+            <li>Communication and Transparency is Key</li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h2>Communication</h2>
+          </header>
+          <ul class="steps">
+            <li>Instant: Skype, IRC, Google Hangout, Campfire</li>
+            <li>Persistant: Email</li>
+            <li>Permanant: Wikis, Issues, Pull Requests, Comments</li>
+            <li>If a communication does not exists in Persistant or Permanant means, it never happend.</li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h2>Development</h2>
+          </header>
+          <ul class="steps">
+            <li>Vagrant</li>
+            <li>AWS</li>
+            <li>SaltStack | Puppet | Chef</li>
+            <li>VPN's</li>
+            <li>StatsD - Application Metrics</li>
+          </ul>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>Breaking the Monolith</h1>
+            <h2>Moving to a microservice based architecture</h2>
+            <p>Paul Osman</p>
+          </header>
+          <ul class="steps">
+            <li>Monolith: Large, all encompusing systems</li>
+            <li>Pros of Monoliths
+              <ul>
+                <li>Easy to Picture</li>
+                <li>Few Moving Parts</li>
+                <li>1 Stack</li>
+              </ul>
+            </li>
+            <li>Cons of Monoliths
+              <ul>
+                <li>Scaling is an "All or Nothing" solution</li>
+                <li>Change Cycles are linked</li>
+                <li>Single Responsibility Principal (SRP) is hard to maintain</li>
+                <li>Harder to Isolate Single Points of Failure</li>
+              </ul>
+            </li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h2>Microservices</h2>
+          </header>
+          <ul class="steps">
+            <li>Microservices: having multiple dedicated services to communicating with one another via a unified protocol.</li>
+            <li>Micro is Important! keeps things small and dedicated</li>
+            <li>Common Characteristics
+              <ul>
+                <li>multiple programs</li>
+                <li>can use different languages</li>
+                <li>centralized domain ownership</li>
+              </ul>
+            </li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h2>Things Learned</h2>
+          </header>
+          <ul class="steps">
+            <li>DevOps is Important!</li>
+            <li>Measure EVERYTHING</li>
+            <li>Use Circuit Breakers - Read: "Release it"</li>
+            <li>Run Gameday Exercises</li>
+            <li>Test in Production</li>
+          </ul>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>Failure Friday!</h1>
+            <h2>Start injecting failure today</h2>
+            <p>Doug Barth</p>
+          </header>
+          <ul class="steps">
+            <li>Bugs in exceptional core paths</li>
+            <li>Systems not recovering as quickly as expected</li>
+            <li>What is Normal when things are abnormal?</li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h2>Process</h2>
+          </header>
+          <ul class="steps">
+            <li>Get Buy In from Everyone</li>
+            <li>Meet to discuss the attackers and victems</li>
+            <li>Before Starting
+              <ul>
+                <li>Stop any scheduled tasks</li>
+                <li>announce the start</li>
+                <li>open dask boards</li>
+                <li>Leave alerts enabled</li>
+              </ul>
+            </li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h2>Attacks</h2>
+          </header>
+          <ul class="steps">
+            <li>start on single hosts, then the data center</li>
+            <li>5 mins per attack</li>
+            <li>Return system to working state</li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h2>Deliverables</h2>
+          </header>
+          <ul class="steps">
+            <li>Track Actions Taken</li>
+            <li>Times are Important</li>
+            <li>Track Discoveries and TODO's</li>
+            <li>Chatrooms make things easy</li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h2>Wrapping Up</h2>
+          </header>
+          <ul class="steps">
+            <li>Sound an All Clear</li>
+            <li>restore systems and settings</li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h2>Culteral Impact</h2>
+          </header>
+          <ul class="steps">
+            <li>Knowledge Sharing</li>
+            <li>Highlights Untestable Systems</li>
+            <li>Developers know there systems will be tested</li>
+          </ul>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>Continuous Delivery for the Rest of Us</h1>
+            <p>Lisa van Gelder</p>
+          </header>
+          <ul class="steps">
+            <li>Continuous Delivery is Not
+              <ul>
+                <li>Continuous Deployment</li>
+                <li>Automating all the things</li>
+              </ul>
+            </li>
+            <li>But it is: ensuring continious testing and content delivery</li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h2>Tools</h2>
+          </header>
+          <ul class="steps">
+            <li>Chaos Monkey - takes out servers</li>
+            <li>Latency Monkey - injects latency</li>
+            <li>Other Monkeys - GitHub: NetFlix Chaos Monkey Army</li>
+            <li>Canary Testing</li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h2>Where to Start</h2>
+          </header>
+          <ul class="steps">
+            <li>Double Release Frequency</li>
+            <li>Smaller Releases</li>
+            <li>If you can't Release: Fake It!</li>
+            <li>Test as soon as you can</li>
+            <li>If a Release breaks functionality, you are probably missing a test</li>
+          </ul>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>Speeding Up Enterprises, One Deploy at a Time</h1>
+            <p>Stuart Charlton</p>
+          </header>
+          <ul class="steps">
+            <li>Whats comes first, Culture or Techology
+              <ul>
+                <li>Neither. These are Reflexive</li>
+              </ul>
+            </li>
+            <li>Getting others to see the system</li>
+            <li>Architechure maters</li>
+          </ul>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>DevOps First, Agile Second</h1>
+            <p>Chris Sandico</p>
+          </header>
+          <ul class="steps">
+            <li>DevOps + Agile = :/
+              <ul>
+                <li>Outside teams do not always understand these are different things</li>
+              </ul>
+            </li>
+            <li>DevOps as a means to stop fighting fires</li>
+            <li>Car Analogy
+              <ul>
+                <li>DevOps is the Engine</li>
+                <li>Agile is the Feul </li>
+              </ul>
+            </li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h2>Setup for Success</h2>
+          </header>
+          <ul class="steps">
+            <li>Executive Support</li>
+            <li>Lead the change</li>
+            <li>Empower Developers</li>
+          </ul>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>Introducing DevOps to the Enterprise, one log at a time</h1>
+            <p>Derek Stadnicki and Shane Rainville</p>
+          </header>
+          <ul class="steps">
+            <li>The Problem
+              <ul>
+                <li>Development and Operations have different tools to solve problems</li>
+              </ul>
+            </li>
+            <li>A solution
+              <ul>
+                <li>DevOps Amelgamated all the tools into a single dashboard location</li>
+              </ul>
+            </li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h2>What was found?</h2>
+          </header>
+          <ul class="steps">
+            <li>DevOps picked a server, and what logs to parse</li>
+            <li>Day 1 of the dashboard found that apache was producing 12.4 Gigs of Error Logs per Day
+              <ul>
+                <li>with the dashboard they were able to pinpoint the problem to a single perl script on the server</li>
+              </ul>
+            </li>
+          </ul>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>The End</h1>
+          </header>
+        </cmv-slide>
+      </cmv-slidegroup>
+    </cmv-deck>
+  </body>
+</html>

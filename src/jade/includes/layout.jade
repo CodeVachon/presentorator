@@ -1,0 +1,16 @@
+doctype html
+html(lang="en")
+	head
+		block title
+			title="Untitled Deck"
+		script(src="/bower_components/platform/platform.js")
+		link(rel="import", href="/bower_components/polymer/polymer.html")
+		link(rel="import", href="/elements/cmv-deck.html")
+		link(rel="import", href="/elements/cmv-slidegroup.html")
+		link(rel="import", href="/elements/cmv-slide.html")
+		block style
+			style.
+				@import url('/css/default.css');
+	body
+		cmv-deck
+			block deck

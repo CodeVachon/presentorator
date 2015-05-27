@@ -1,0 +1,13 @@
+section {
+	width: 48%;
+	margin: 0;
+}
+section:nth-child(even) {
+	float: left;
+}
+section:nth-child(odd) {
+	margin: 0 0 0 50%;
+}
+section h2 {
+	margin: 0 0 1em 0;
+}

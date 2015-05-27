@@ -1,0 +1,221 @@
+doctype html
+html(lang="en")
+html
+	head 
+		title="CFObjective 2014"
+		script(src='/bower_components/platform/platform.js')
+		link(rel='import', href='/bower_components/polymer/polymer.html')
+		link(rel='import', href='/elements/cmv-deck.html')
+		link(rel='import', href='/elements/cmv-slidegroup.html')
+		link(rel='import', href='/elements/cmv-slide.html')
+		style
+			@import url('/css/default.css');
+	body
+		cmv-deck
+			cmv-slide
+				h1 CF.Objective Highlights 2014
+				h2
+					| May 12
+					sup th
+					| to 15
+					sup th
+				h3 Radisson Blu - Mall of America
+				h4 Bloomington, MN
+				br
+				br
+				h5
+					| By: Christopher Vachon (
+					a(href='mailto:chrisv@labx.com') chrisv@labx.com
+					| )
+			cmv-slide
+				header
+					h2 Advanced Caching Techniques with EhCache, BigMemory, Terracotta and ColdFusion
+					p.author Rob Brooks-Bilson
+				ul.steps
+					li Scale Up VS. Scale Out
+					li L1 Cache - In Process
+					li L2 Cache - Out of Process
+					li Cache Replication
+					li L2 Cache and Cache Replication Not Avaliable in CF9
+			cmv-slide
+				header
+					h2 Adobe General Session
+					p.author Adobe ColdFusion Team
+				ul.steps
+					li
+						| Adobe ColdFusion 11
+						ul
+							li Full Script Support
+							li JSON Enhancements
+							li Map &amp; Reduce Functions
+							li CFZip with Password
+							li CFMail with Encryption
+							li Dynmically Create and Call Functions
+							li
+								| Working with
+								a(href='https://www.owasp.org/index.php/ColdFusion_Security_Resources', target='_blank')
+									abbr(title='Open Web Application Security Project') OWASP
+					li CFClient
+			cmv-slide
+				header
+					h2 Introduction to Cordova / PhoneGap
+					p.author Raymon Camden
+				ul.steps
+					li
+						| Cordova and PhoneGap are Esentially the same Project.
+						ul
+							li
+								a(href='http://cordova.apache.org/', target='_blank') Cordova
+								| is an Apache Open Source Project
+							li
+								a(href='http://phonegap.com/', target='_blank') PhoneGap
+								| is the Adobe Port of Cordova
+					li Allows for the creation of Native Apps with HTML5, CSS3, and JavaScript.
+					li
+						abbr(title='Command Line Interface') CLI
+						| Driven
+					li
+						| Integrate with the Ripple Project for Testing
+						ul
+							li
+								| Ripple is
+								strong NO SUBSTITUTION
+								| for Device Testing
+			cmv-slide
+				header
+					h2 Web Components are Awesome (and Polymer too)
+					p.author Elliot Sprehn
+				ul.steps
+					li
+						| Web Components allow you to Define and Use custom HTML elements and have them Natively Rendered by the Browser.
+					li Light DOM and Shadow DOM
+					li
+						| Not Fully Supported Natively by All Browsers
+						ul
+							li
+								| Thats where
+								a(href='http://www.polymer-project.org/', target='_blank') Polymer
+								| Comes in
+					li This Slideshow is using Web Components and Polymer!
+			cmv-slidegroup
+				cmv-slide
+					header
+						h2 BDD (Behavior Driven Development) - Change the way you code
+						p.author Luis Majano
+					ul.steps
+						li BDD Evolves from TDD (Test Driven Development)
+						li BDD is Designed for Developers and StakeHolders
+						li Promotes Consistancy Across Products
+				cmv-slide
+					header
+						h2
+							a(href='http://wiki.coldbox.org/wiki/TestBox.cfm', target='_blank') TestBox
+					ul.steps
+						li BDD Testing Framework
+						li Migrate Existing MXUnit Tests
+						li Not Available for CF9
+			cmv-slidegroup
+				cmv-slide
+					header
+						h2 Creating Services for Modern Web Applications
+						p.author
+							| Mike Nimer
+							p
+					ul.steps
+						li
+							a(href='http://en.wikipedia.org/wiki/Representational_state_transfer', target='_blank')
+								abbr(title='REpresentational State Transfer') REST
+								| ful API's
+							| Principles
+							ol
+								li Uniform Interface
+								li Client - Server
+								li Stateless
+								li Cacheable
+								li Layered System(s)
+								li Code On Demand (Optional)
+				cmv-slide
+					header
+						h2 Creating Services for Modern Web Applications
+						h3 HTTP Verbs Versouses Nouns
+					ul.steps
+						li
+							| HTTP Verbs
+							ul
+								li GET and POST
+								li
+									| PUT, PATCH, and DELETE
+						li
+							| Nouns
+							ul
+								li
+									| In URL Structures - /api/
+									strong people
+									| /192304
+								li Always Plural - Use People not Person
+				cmv-slide
+					header
+						h2 Creating Services for Modern Web Applications
+						h3 Status Codes
+					ul.steps
+						li
+							| 2xx
+							ul
+								li 200 - OK
+								li 201 - Created - Used with POST
+								li 202 - Accepted - Used with PUT and PATCH
+						li
+							| 4xx
+							ul
+								li 400 - Bad Request - Could not understand you
+								li 401 - Unauthorized - User isnt authenticated
+						li 500 - Server Error - Something Went Horribly Wrong
+						li
+							a(href='http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html', target='_blank') Many Many More...
+				cmv-slide
+					header
+						h2 Creating Services for Modern Web Applications
+						h3 Cont...
+					ul.steps
+						li
+							a(href='http://en.wikipedia.org/wiki/HATEOAS', target='_blank') HATEOAS
+						li
+							| Read:
+							a(href='http://www.infoq.com/articles/webber-rest-workflow', target='_blank') How to GET a cup of Coffee
+			cmv-slide
+				header
+					h2 Making Bad Code Good
+					p.author Dan Wilson
+				ul.steps
+					li
+						| Steps to Debug "Bad Code"
+						ul
+							li 1st Pass - Read Through the Entire Method
+							li 2nd Pass - Add Comments
+							li 3rd Pass - Read Again, and Fix
+					li
+						| Coding Tips
+						ul
+							li Encapsulate Everything
+							li Re-organize Code
+							li Evaluate Conditions as True
+			cmv-slide
+				header
+					h2 Getting Started with MongoDB for CFML Developers
+					p.author
+						| Dan Skaggs
+						p
+				ul.steps
+					li
+						| MongoDB is a Document Object Database alternative to Traditional Relationship Databases
+					li Fast, Strong, Flexible, and Forgiving
+					li
+						| Not a replacement for Relation Dependant Data Sets
+						ul
+							li No Joins
+							li No Transactions
+							li No SQL Crossover
+					li MongoDB has Extensions for Adobe ColdFusion 10 and Railo
+			cmv-slidegroup
+				cmv-slide
+					h2 The End

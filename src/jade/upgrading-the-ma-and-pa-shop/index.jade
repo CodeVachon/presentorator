@@ -1,0 +1,60 @@
+extends ../includes/layout.jade
+block title
+	title="Upgrading the Ma and Pa Shop"
+block sytle
+	style
+		@import url('/includes/css/default.css');
+block deck
+	//- Slide 1 - Intro
+	cmv-slidegroup
+		cmv-slide
+			header
+				h1 Upgrading the Ma and Pa Shop
+				p a guide to introducing new processes to a growing business
+	cmv-slidegroup
+		cmv-slide
+			header
+				h1 The Scenario
+			ul.steps
+				li a small company (less then 20 people) grows to a medium business with over 50 people.
+				li the company is comprised of several products with supporting staff.  Each product consisting of:
+					ul
+						li A product owner
+						li Sales staff
+						li Sales support staff
+				li the company has 1 team of developers comprised of 5 people that is responsible for maintaining and developing all the companies digital products.
+				li the company is extreamly resistant to change
+	cmv-slidegroup
+		cmv-slide
+			header
+				h1 Step 1
+				h2 Introducing Agile
+			p many companies maintaining and developing internal projects use a waterfall approch to development.
+			ul.steps
+				li Pros to a Waterfall approch
+					ul
+						li Company knows what they are getting before the project starts
+						li Company can chose to outsource that project
+				li Cons to a Waterfall approch
+					ul 
+						li Extreamly slow for development
+						li Unflexable for scope creep or changes in priorities 
+				li Internal projects should be handled with an Agile procress
+	cmv-slidegroup
+		cmv-slide
+			header
+				h1 Agile Processes
+			p Several agile processes exists to help companies develope software
+			ul.steps
+				li Scrum
+				li KanBan
+				li Lean Software Development
+		cmv-slide
+			header
+				h1 Scrum
+		cmv-slide
+			header
+				h1 KanBan
+		cmv-slide
+			header
+				h1 Lean Software Development

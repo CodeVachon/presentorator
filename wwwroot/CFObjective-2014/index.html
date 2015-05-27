@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<html>
+  <head>
+    <title>CFObjective 2014</title>
+    <script src="/bower_components/platform/platform.js"></script>
+    <link rel="import" href="/bower_components/polymer/polymer.html">
+    <link rel="import" href="/elements/cmv-deck.html">
+    <link rel="import" href="/elements/cmv-slidegroup.html">
+    <link rel="import" href="/elements/cmv-slide.html">
+    <style>@import url('/css/default.css');</style>
+  </head>
+  <body>
+    <cmv-deck>
+      <cmv-slide>
+        <h1>CF.Objective Highlights 2014</h1>
+        <h2>May 12<sup>th</sup>to 15<sup>th</sup></h2>
+        <h3>Radisson Blu - Mall of America</h3>
+        <h4>Bloomington, MN</h4><br><br>
+        <h5>By: Christopher Vachon (<a href="mailto:chrisv@labx.com">chrisv@labx.com</a>)</h5>
+      </cmv-slide>
+      <cmv-slide>
+        <header>
+          <h2>Advanced Caching Techniques with EhCache, BigMemory, Terracotta and ColdFusion</h2>
+          <p class="author">Rob Brooks-Bilson</p>
+        </header>
+        <ul class="steps">
+          <li>Scale Up VS. Scale Out</li>
+          <li>L1 Cache - In Process</li>
+          <li>L2 Cache - Out of Process</li>
+          <li>Cache Replication</li>
+          <li>L2 Cache and Cache Replication Not Avaliable in CF9</li>
+        </ul>
+      </cmv-slide>
+      <cmv-slide>
+        <header>
+          <h2>Adobe General Session</h2>
+          <p class="author">Adobe ColdFusion Team</p>
+        </header>
+        <ul class="steps">
+          <li>Adobe ColdFusion 11
+            <ul>
+              <li>Full Script Support</li>
+              <li>JSON Enhancements</li>
+              <li>Map &amp; Reduce Functions</li>
+              <li>CFZip with Password</li>
+              <li>CFMail with Encryption</li>
+              <li>Dynmically Create and Call Functions</li>
+              <li>Working with<a href="https://www.owasp.org/index.php/ColdFusion_Security_Resources" target="_blank"><abbr title="Open Web Application Security Project">OWASP</abbr></a></li>
+            </ul>
+          </li>
+          <li>CFClient</li>
+        </ul>
+      </cmv-slide>
+      <cmv-slide>
+        <header>
+          <h2>Introduction to Cordova / PhoneGap</h2>
+          <p class="author">Raymon Camden</p>
+        </header>
+        <ul class="steps">
+          <li>Cordova and PhoneGap are Esentially the same Project.
+            <ul>
+              <li><a href="http://cordova.apache.org/" target="_blank">Cordova</a>is an Apache Open Source Project</li>
+              <li><a href="http://phonegap.com/" target="_blank">PhoneGap</a>is the Adobe Port of Cordova</li>
+            </ul>
+          </li>
+          <li>Allows for the creation of Native Apps with HTML5, CSS3, and JavaScript.</li>
+          <li><abbr title="Command Line Interface">CLI</abbr>Driven</li>
+          <li>Integrate with the Ripple Project for Testing
+            <ul>
+              <li>Ripple is<strong>NO SUBSTITUTION</strong>for Device Testing</li>
+            </ul>
+          </li>
+        </ul>
+      </cmv-slide>
+      <cmv-slide>
+        <header>
+          <h2>Web Components are Awesome (and Polymer too)</h2>
+          <p class="author">Elliot Sprehn</p>
+        </header>
+        <ul class="steps">
+          <li>Web Components allow you to Define and Use custom HTML elements and have them Natively Rendered by the Browser.</li>
+          <li>Light DOM and Shadow DOM</li>
+          <li>Not Fully Supported Natively by All Browsers
+            <ul>
+              <li>Thats where<a href="http://www.polymer-project.org/" target="_blank">Polymer</a>Comes in</li>
+            </ul>
+          </li>
+          <li>This Slideshow is using Web Components and Polymer!</li>
+        </ul>
+      </cmv-slide>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h2>BDD (Behavior Driven Development) - Change the way you code</h2>
+            <p class="author">Luis Majano</p>
+          </header>
+          <ul class="steps">
+            <li>BDD Evolves from TDD (Test Driven Development)</li>
+            <li>BDD is Designed for Developers and StakeHolders</li>
+            <li>Promotes Consistancy Across Products</li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h2><a href="http://wiki.coldbox.org/wiki/TestBox.cfm" target="_blank">TestBox</a></h2>
+          </header>
+          <ul class="steps">
+            <li>BDD Testing Framework</li>
+            <li>Migrate Existing MXUnit Tests</li>
+            <li>Not Available for CF9</li>
+          </ul>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h2>Creating Services for Modern Web Applications</h2>
+            <p class="author">Mike Nimer
+              <p></p>
+            </p>
+          </header>
+          <ul class="steps">
+            <li><a href="http://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank"><abbr title="REpresentational State Transfer">REST</abbr>ful API's</a>Principles
+              <ol>
+                <li>Uniform Interface</li>
+                <li>Client - Server</li>
+                <li>Stateless</li>
+                <li>Cacheable</li>
+                <li>Layered System(s)</li>
+                <li>Code On Demand (Optional)</li>
+              </ol>
+            </li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h2>Creating Services for Modern Web Applications</h2>
+            <h3>HTTP Verbs Versouses Nouns</h3>
+          </header>
+          <ul class="steps">
+            <li>HTTP Verbs
+              <ul>
+                <li>GET and POST</li>
+                <li>PUT, PATCH, and DELETE</li>
+              </ul>
+            </li>
+            <li>Nouns
+              <ul>
+                <li>In URL Structures - /api/<strong>people</strong>/192304</li>
+                <li>Always Plural - Use People not Person</li>
+              </ul>
+            </li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h2>Creating Services for Modern Web Applications</h2>
+            <h3>Status Codes</h3>
+          </header>
+          <ul class="steps">
+            <li>2xx
+              <ul>
+                <li>200 - OK</li>
+                <li>201 - Created - Used with POST</li>
+                <li>202 - Accepted - Used with PUT and PATCH</li>
+              </ul>
+            </li>
+            <li>4xx
+              <ul>
+                <li>400 - Bad Request - Could not understand you</li>
+                <li>401 - Unauthorized - User isnt authenticated</li>
+              </ul>
+            </li>
+            <li>500 - Server Error - Something Went Horribly Wrong</li>
+            <li><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html" target="_blank">Many Many More...</a></li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h2>Creating Services for Modern Web Applications</h2>
+            <h3>Cont...</h3>
+          </header>
+          <ul class="steps">
+            <li><a href="http://en.wikipedia.org/wiki/HATEOAS" target="_blank">HATEOAS</a></li>
+            <li>Read:<a href="http://www.infoq.com/articles/webber-rest-workflow" target="_blank">How to GET a cup of Coffee</a></li>
+          </ul>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slide>
+        <header>
+          <h2>Making Bad Code Good</h2>
+          <p class="author">Dan Wilson</p>
+        </header>
+        <ul class="steps">
+          <li>Steps to Debug "Bad Code"
+            <ul>
+              <li>1st Pass - Read Through the Entire Method</li>
+              <li>2nd Pass - Add Comments</li>
+              <li>3rd Pass - Read Again, and Fix</li>
+            </ul>
+          </li>
+          <li>Coding Tips
+            <ul>
+              <li>Encapsulate Everything</li>
+              <li>Re-organize Code</li>
+              <li>Evaluate Conditions as True</li>
+            </ul>
+          </li>
+        </ul>
+      </cmv-slide>
+      <cmv-slide>
+        <header>
+          <h2>Getting Started with MongoDB for CFML Developers</h2>
+          <p class="author">Dan Skaggs
+            <p></p>
+          </p>
+        </header>
+        <ul class="steps">
+          <li>MongoDB is a Document Object Database alternative to Traditional Relationship Databases</li>
+          <li>Fast, Strong, Flexible, and Forgiving</li>
+          <li>Not a replacement for Relation Dependant Data Sets
+            <ul>
+              <li>No Joins</li>
+              <li>No Transactions</li>
+              <li>No SQL Crossover</li>
+            </ul>
+          </li>
+          <li>MongoDB has Extensions for Adobe ColdFusion 10 and Railo</li>
+        </ul>
+      </cmv-slide>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <h2>The End</h2>
+        </cmv-slide>
+      </cmv-slidegroup>
+    </cmv-deck>
+  </body>
+</html>
