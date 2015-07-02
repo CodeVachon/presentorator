@@ -1,0 +1,120 @@
+extends ../includes/layout.jade
+block title
+    title="What Is Node?"
+block sytle
+    style: @import url('/includes/css/default.css');
+block deck
+    cmv-slidegroup
+        cmv-slide
+            header
+                h1 What Is Node?
+                p A none technical overview
+            p Over the past few months, you may have heard a lot about Node, Express, and Mocha. This will help give you a better understanding of what these are.
+                
+    cmv-slidegroup
+        cmv-slide
+            header
+                h1 Agenda
+                p What are we going to talk about today?
+            ol.steps
+                li What is Node?
+                li What is Express?
+                li What is Mocha?
+                li How does it help me?
+                
+    cmv-slidegroup
+        cmv-slide
+            header 
+                h1 Node!
+            p You have probably heard the term Node over the last few years. But what is Node?
+            ul.steps
+                li JavaScript
+                li Light Weight 
+                li Fast
+                
+    cmv-slidegroup
+        cmv-slide
+            header
+                h1 Node: JavaScript
+                p The Past
+            p Previous Generation Websites have several Languages involved, and developers needed to have a working understanding of all of them.
+            ul.steps
+                li Server: C / C++, VB, PERL, etc...
+                li Server Engine: PHP, Ruby, ColdFusion, etc...
+                li Front End: JavaScript, ActionScript, etc..
+            
+        cmv-slide
+            header
+                h1 Node: JavaScript
+                p The Future
+            p Next Generation Websites only require a working knowledge of one Language:
+            ul.steps
+                li JavaScript
+            
+    cmv-slidegroup
+        cmv-slide
+            header
+                h1 Node: Light Weight And Fast
+            p Node is built on top of the Google Chrome JavaScript Runtime Engine. 
+            p This means that is its:
+            ul.steps
+                li Highly Tested
+                li Small File size
+                li Extreamly Fast to Start and Run
+
+    cmv-slidegroup
+        cmv-slide
+            header
+                h1 Node: More Information
+            p find out more at: #[a(href="http://nodejs.org") nodejs.org]
+                
+    cmv-slidegroup
+        cmv-slide
+            header
+                h1 Express
+                p A Node Framework
+            p Allows us to develop applications and API's very quickly with an Open Source, Community Built and Driven, Highly testable framework.
+
+        cmv-slide
+            header
+                h1 Express: More Information
+            p find out more at: #[a(href="http://expressjs.com") expressjs.com]
+                
+    cmv-slidegroup
+        cmv-slide
+            header 
+                h1 Mocha
+                p Testing JavaScript
+            p Mocha is a Testing framework for JavaScript and Node. It allows us to test both the Front End and Back End to help ensure a bug free experience for our end users.
+            p As bugs are reported on various systems, developers write a test for the bug and the expected functionality. They will then fix the code to pass the test.
+            p Tests are never deleted. So as new systems are developed, and systems are changed, we can ensure the bug does not come back!
+            
+        cmv-slide
+            header
+                h1 Mocha: More Information
+            p find out more at: #[a(href="http://mochajs.org") mochajs.org]
+            
+    cmv-slidegroup
+        cmv-slide
+            header
+                h1 How Does this Help Me?
+            p With these new technologies and frameworks developers better serve their end users by being able to:
+            ol.steps
+                li Create Scaleble Servers Quickly thanks to Node
+                li Deliver Features Faster thanks to Express
+                li Deliver Features with Fewer Bugs thanks to Mocha
+
+    cmv-slidegroup
+        cmv-slide
+            header
+                h1 Questions / Comments?
+
+    cmv-slidegroup
+        cmv-slide
+            header
+                h1 The End
+            h2 Resources
+            ul
+                li: a(href='http://nodejs.org') nodejs.org
+                li: a(href='http://expressjs.com') expressjs.com
+                li: a(href='http://mochajs.org') mochajs.org
