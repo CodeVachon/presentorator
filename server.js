@@ -3,6 +3,7 @@ var express = require('express'),
     port = process.env.PORT || 3030;
 ;
 
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use(express.static(__dirname + '/wwwroot'));
 
 app.listen(port, function(){
