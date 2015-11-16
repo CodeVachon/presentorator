@@ -27,18 +27,7 @@ block deck
       ul.steps
         li Automated Testing
         li Pipeline Map
-
-
-  cmv-slidegroup
-    cmv-slide
-      header
-        h1 Internet your things
-
-
-  cmv-slidegroup
-    cmv-slide
-      header
-        h1 Empowering MicroServices with Apache Karaf
+        li Start by automating one peice at a time. Don't try to automate your entire pipe at once
 
 
   cmv-slidegroup
@@ -46,11 +35,11 @@ block deck
       header
         h1 Using Hypermedia APIs to Drive Interactive Mobile Applications
       ul.steps
-        li gzip
-        li suport etags
+        li Use gzip
+        li supports etags
         li cache control headers
         li breakup up resources in line with cacheability
-        li componentize resources to allow ui to draw data loads
+        li componentize resources to allow UI to draw data loads
         li forms can add a lot of API flexibility
 
 
@@ -58,6 +47,12 @@ block deck
     cmv-slide
       header
         h1 Evolving Web Applications with Module Based Design Components
+      ul.steps
+        li Design Compants and not Applications
+          ul
+            li Design the Button on the page, not the page the button fits into
+        li Create and Use a Living Style Guide for the Brand
+        li BreakUp Colour Pallets into Primary, Secondary, and Teirtiary 
 
 
   cmv-slidegroup
@@ -78,12 +73,19 @@ block deck
       header
         h1 Re-evaluating Front-end Performance Best Practices
       ul.steps
-        li cargo cult - go back and reevaluate techniquies
+        li
+          a(href="https://en.wikipedia.org/wiki/Cargo_cult") Cargo Cult
+          ul
+            li go back and reevaluate techniquies
         li hosting sharding
+          ul
+            li No longer applicable because browsers now create mutiple connections to the server to get its assets
         li JS: Looping
           ul
-            li Cached is no longer required
+            li Cached is no longer required, JavaScript Engines now do this in the background for you.
         li Dynamic Script Insertion
+          ul
+            li May be causing more issues than solving
 
 
   cmv-slidegroup
