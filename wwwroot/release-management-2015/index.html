@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Release Management 2015</title>
+    <script src="/bower_components/platform/platform.js"></script>
+    <link rel="import" href="/bower_components/polymer/polymer.html">
+    <link rel="import" href="/elements/cmv-deck.html">
+    <link rel="import" href="/elements/cmv-slidegroup.html">
+    <link rel="import" href="/elements/cmv-slide.html">
+    <style>@import url('/includes/css/default.min.css');</style>
+  </head>
+  <body>
+    <cmv-deck>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>Release Management Overview</h1>
+            <p>Best Practices and Upcoming Changes</p>
+          </header>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>What Will We Cover?</h1>
+          </header>
+          <ul class="steps">
+            <li>Development Roles
+              <ul>
+                <li>The 3 departments</li>
+                <li>The historical way</li>
+                <li>The way things are heading</li>
+                <li>How we do it</li>
+              </ul>
+            </li>
+            <li>Release Life Cycle</li>
+            <li>Current CI Life Cycle</li>
+            <li>New CI Life Cycle</li>
+          </ul>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>Development Roles</h1>
+          </header>
+          <ul class="steps">
+            <li>the historical setup
+              <ul>
+                <li>How development is typically structured (in a medium to large company)</li>
+              </ul>
+            </li>
+            <li>the trendier setup
+              <ul>
+                <li>How development is shifting</li>
+              </ul>
+            </li>
+            <li>how we apply it </li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h1>Development Roles: Development Teams</h1>
+          </header>
+          <ul class="steps">
+            <li>Builds All the new Stuff</li>
+            <li>Tests thier new Stuff</li>
+            <li>Hands it off to QA</li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h1>Development Roles: Quality Assurance Teams</h1>
+          </header>
+          <ul class="steps">
+            <li>Tests Everything</li>
+            <li>Ensures Requirements are Met</li>
+            <li>Hands it off to Ops</li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h1>Development Roles: Opertions Teams</h1>
+          </header>
+          <ul class="steps">
+            <li>Runs Everything</li>
+            <li>Handles any Bugs</li>
+            <li>Handles any Releated Tickets</li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h1>Development Roles: Historical Setup</h1>
+          </header>
+          <ul class="steps">
+            <li>Projects get passed from one team to another</li>
+            <li>Teams do not intermigle</li>
+            <li>Little communication and / or documentation</li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h1>Development Roles: Trendier Setup</h1>
+          </header>
+          <ul class="steps">
+            <li>Better Communication was needed</li>
+            <li>DevOps
+              <ul>
+                <li>Oversees the Projects from higher point of view</li>
+                <li>Facilitates transitions</li>
+                <li>Automates the Pipeline</li>
+              </ul>
+            </li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h1>Development Roles: How We Do It!</h1>
+          </header>
+          <ul class="steps">
+            <li>Development and QA are combined</li>
+            <li>Operations works with Dev Directly</li>
+            <li>DevOps Works on the same level</li>
+          </ul>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>Release Life Cycle</h1>
+          </header>
+          <ul class="steps">
+            <li>Agile is Everything!</li>
+            <li>3 Kinds of Releases
+              <ul>
+                <li>Planned Releases</li>
+                <li>Patches</li>
+                <li>the OMG! OMG! OMG! HotFix</li>
+              </ul>
+            </li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h1>Release Life Cycle: Planned Releases</h1>
+          </header>
+          <ul class="steps">
+            <li>Minor and Major Semantic Versions
+              <ul>
+                <li>Major Releases break previous versions</li>
+                <li>Minor Releases do not break previous versions</li>
+              </ul>
+            </li>
+            <li>Should be scheduled well in advance</li>
+            <li>Should contain new or updated features</li>
+            <li>Can also contain Bug Fixes and Content changes</li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h1>Release Life Cycle: Patches </h1>
+          </header>
+          <ul class="steps">
+            <li>Patch Semantic Versions
+              <ul>
+                <li>Fixes break(s) in previous version</li>
+              </ul>
+            </li>
+            <li>Should have a life span of about 24 hours</li>
+            <li>Should only contain bug fixes, not new functionality</li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h1>Release Life Cycle: Hot Fix</h1>
+          </header>
+          <ul class="steps">
+            <li>Should Count as a Patch</li>
+            <li>Should not be used unless absolutely nessaceary </li>
+            <li>Its better Practice in the event that a HotFix would be required to Roll Back to the last know working version</li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h1>Release Life Cycle: Best Practices</h1>
+          </header>
+          <ul class="steps">
+            <li>Commit only working and completed code</li>
+            <li>Descriptive Commit Messages
+              <ul>
+                <li>Good: "Update SQL to sort by date"</li>
+                <li>Bad: "Updates"</li>
+              </ul>
+            </li>
+            <li>Work on Project Branches, not on Release Branches
+              <ul>
+                <li>Assume that any Release Branch can go live at any time</li>
+              </ul>
+            </li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h1>Release Life Cycle: Containers!</h1>
+          </header>
+          <ul class="steps">
+            <li>Containers (Docker) allow for us to quickly and easily deploy full working environments distributed across multiple isolated environments</li>
+            <li>Important Notes!
+              <ul>
+                <li>Containers are Isolated and Contained - You can not Edit them directly</li>
+                <li>We can run multiple of the same container on the same host or across multiple hosts</li>
+                <li>Each Container can run is in its own runtime environment</li>
+              </ul>
+            </li>
+          </ul>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>Current CI Life Cycle</h1>
+          </header>
+          <ul class="steps">
+            <li>Focuses on Branches</li>
+            <li>Work Flow
+              <ul>
+                <li>Merge to Master</li>
+                <li>Tests are Run (if found)</li>
+                <li>Files are Deployed / Pulled</li>
+                <li>Containers are Built, Deployed, and Started (if required)</li>
+                <li>Tag is Created based off Master</li>
+              </ul>
+            </li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h1>Current CI Life Cycle: The Good Stuff</h1>
+          </header>
+          <ul class="steps">
+            <li>Its fairly quick</li>
+            <li>Its fairly predictable</li>
+            <li>Its easy to follow</li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h1>Current CI Life Cycle: The Bad Stuff</h1>
+          </header>
+          <ul class="steps">
+            <li>Its not versatile</li>
+            <li>Its does not scale horizontally</li>
+            <li>Its does not allow an for easy rollback</li>
+          </ul>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>New CI Life Cycle</h1>
+          </header>
+          <ul class="steps">
+            <li>Focuses on Tags</li>
+            <li>Work Flow
+              <ul>
+                <li>Merge to Master</li>
+                <li>Tests are Run (if found)</li>
+                <li>Tag is Created based off Master</li>
+                <li>Tag is Deployed</li>
+                <li>Containers are Built, Deployed, and Started (if required)</li>
+              </ul>
+            </li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h1>New CI Life Cycle: The Good Stuff</h1>
+          </header>
+          <ul class="steps">
+            <li>Deployment based on Tag means that we can easily revert to any previous tag </li>
+            <li>Scales out better because we can use multiple runners with a simple script</li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h1>New CI Life Cycle: The Bad Stuff</h1>
+          </header>
+          <ul class="steps">
+            <li>Potentially a little slower</li>
+          </ul>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header class="centered">
+            <h1>Questions &amp;&amp; Comments</h1>
+          </header>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header class="centered">
+            <h1>The End</h1>
+          </header>
+        </cmv-slide>
+      </cmv-slidegroup>
+    </cmv-deck>
+  </body>
+</html>

@@ -1,0 +1,234 @@
+extends ../includes/layout.jade
+
+
+block title
+  title="Release Management 2015"
+
+
+block style
+  style
+    @import url('/includes/css/default.min.css');
+
+
+block deck
+  cmv-slidegroup
+    cmv-slide
+      header
+        h1 Release Management Overview
+        p Best Practices and Upcoming Changes
+
+
+  cmv-slidegroup
+    cmv-slide
+      header
+        h1 What Will We Cover?
+      ul.steps
+        li Development Roles
+          ul
+            li The 3 departments
+            li The historical way
+            li The way things are heading
+            li How we do it
+        li Release Life Cycle
+        li Current CI Life Cycle
+        li New CI Life Cycle
+
+
+  cmv-slidegroup
+    cmv-slide
+      header
+        h1 Development Roles
+      ul.steps
+        li the historical setup
+          ul: li How development is typically structured (in a medium to large company)
+        li the trendier setup
+          ul: li How development is shifting
+        li how we apply it 
+
+    cmv-slide
+      header
+        h1 Development Roles: Development Teams
+      ul.steps
+        li Builds All the new Stuff
+        li Tests thier new Stuff
+        li Hands it off to QA
+
+    cmv-slide
+      header
+        h1 Development Roles: Quality Assurance Teams
+      ul.steps
+        li Tests Everything
+        li Ensures Requirements are Met
+        li Hands it off to Ops
+
+    cmv-slide
+      header
+        h1 Development Roles: Opertions Teams
+      ul.steps
+        li Runs Everything
+        li Handles any Bugs
+        li Handles any Releated Tickets
+
+    cmv-slide
+      header
+        h1 Development Roles: Historical Setup
+      ul.steps
+        li Projects get passed from one team to another
+        li Teams do not intermigle
+        li Little communication and / or documentation
+
+    cmv-slide
+      header
+        h1 Development Roles: Trendier Setup
+      ul.steps
+        li Better Communication was needed
+        li DevOps
+          ul
+            li Oversees the Projects from higher point of view
+            li Facilitates transitions
+            li Automates the Pipeline
+
+    cmv-slide
+      header
+        h1 Development Roles: How We Do It!
+      ul.steps
+        li Development and QA are combined
+        li Operations works with Dev Directly
+        li DevOps Works on the same level
+
+
+  cmv-slidegroup
+    cmv-slide
+      header
+        h1 Release Life Cycle
+      ul.steps
+        li Agile is Everything!
+        li 3 Kinds of Releases
+          ul
+            li Planned Releases
+            li Patches
+            li the OMG! OMG! OMG! HotFix
+
+    cmv-slide
+      header
+        h1 Release Life Cycle: Planned Releases
+      ul.steps
+        li Minor and Major Semantic Versions
+          ul
+            li Major Releases break previous versions
+            li Minor Releases do not break previous versions
+        li Should be scheduled well in advance
+        li Should contain new or updated features
+        li Can also contain Bug Fixes and Content changes
+
+    cmv-slide
+      header
+        h1 Release Life Cycle: Patches 
+      ul.steps
+        li Patch Semantic Versions
+          ul
+            li Fixes break(s) in previous version
+        li Should have a life span of about 24 hours
+        li Should only contain bug fixes, not new functionality
+
+    cmv-slide
+      header
+        h1 Release Life Cycle: Hot Fix
+      ul.steps
+        li Should Count as a Patch
+        li Should not be used unless absolutely nessaceary 
+        li Its better Practice in the event that a HotFix would be required to Roll Back to the last know working version
+
+    cmv-slide
+      header
+        h1 Release Life Cycle: Best Practices
+      ul.steps
+        li Commit only working and completed code
+        li Descriptive Commit Messages
+          ul
+            li Good: "Update SQL to sort by date"
+            li Bad: "Updates"
+        li Work on Project Branches, not on Release Branches
+          ul
+            li Assume that any Release Branch can go live at any time
+
+    cmv-slide
+      header
+        h1 Release Life Cycle: Containers!
+      ul.steps
+        li Containers (Docker) allow for us to quickly and easily deploy full working environments distributed across multiple isolated environments
+        li Important Notes!
+          ul
+            li Containers are Isolated and Contained - You can not Edit them directly
+            li We can run multiple of the same container on the same host or across multiple hosts
+            li Each Container can run is in its own runtime environment
+
+
+  cmv-slidegroup
+    cmv-slide
+      header
+        h1 Current CI Life Cycle
+      ul.steps
+        li Focuses on Branches
+        li Work Flow
+          ul
+            li Merge to Master
+            li Tests are Run (if found)
+            li Files are Deployed / Pulled
+            li Containers are Built, Deployed, and Started (if required)
+            li Tag is Created based off Master
+
+    cmv-slide
+      header
+        h1 Current CI Life Cycle: The Good Stuff
+      ul.steps
+        li Its fairly quick
+        li Its fairly predictable
+        li Its easy to follow
+
+    cmv-slide
+      header
+        h1 Current CI Life Cycle: The Bad Stuff
+      ul.steps
+        li Its not versatile
+        li Its does not scale horizontally
+        li Its does not allow an for easy rollback
+
+
+  cmv-slidegroup
+    cmv-slide
+      header
+        h1 New CI Life Cycle
+      ul.steps
+        li Focuses on Tags
+        li Work Flow
+          ul
+            li Merge to Master
+            li Tests are Run (if found)
+            li Tag is Created based off Master
+            li Tag is Deployed
+            li Containers are Built, Deployed, and Started (if required)
+
+    cmv-slide
+      header
+        h1 New CI Life Cycle: The Good Stuff
+      ul.steps
+        li Deployment based on Tag means that we can easily revert to any previous tag 
+        li Scales out better because we can use multiple runners with a simple script
+
+    cmv-slide
+      header
+        h1 New CI Life Cycle: The Bad Stuff
+      ul.steps
+        li Potentially a little slower
+
+
+  cmv-slidegroup
+    cmv-slide
+      header.centered
+        h1 Questions &amp;&amp; Comments
+
+  cmv-slidegroup
+    cmv-slide
+      header.centered
+        h1 The End

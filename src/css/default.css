@@ -34,3 +34,6 @@ p.author {
   margin: 0;
   padding: 0;
 }
+.centered {
+  text-align: center;
+}
