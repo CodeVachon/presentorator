@@ -1,0 +1,76 @@
+extends ../includes/layout.jade
+
+
+block title
+  title="What is a Bug?"
+
+
+block style
+  style
+    @import url('/includes/css/default.min.css');
+
+
+block deck
+  cmv-slidegroup
+    cmv-slide
+      header
+        h1 What is a Bug?
+        p An exploration of the difference between a bug and change.
+
+  cmv-slidegroup
+    cmv-slide
+      header
+        h1 2 types of Requests
+      ul.steps
+        li there are two main types of requests to change a system
+          ol
+            li Change Request
+            li Bug Report
+    cmv-slide
+      header
+        h1 Change Request
+      ul.steps
+        li These are requests to change or remove exisiting functionality or to have new functionality added
+        li These can usually be planned well ahead of time and often have well defined requiements
+    cmv-slide
+      header
+        h1 Bug Report
+      ul.steps
+        li These are submitted errors in existing functionality
+        li Any action done by the system which is not what was designed is a bug
+
+  cmv-slidegroup
+    cmv-slide
+      header
+        h1 Examples
+      p A user pushes a button called "Goto Homepage". The system directs them to an article listing page.
+      ul.steps
+        li Does this represent a Change Request or a Bug?
+        li: strong Bug
+    cmv-slide
+      header
+        h1 Examples
+      p A user enters their address into the system, and notices that they do not have enough fields for their entire address. They need an additional input.
+      ul.steps
+        li Does this represent a Change Request or a Bug?
+        li: strong Change Request
+    cmv-slide
+      header
+        h1 Examples
+      p A user goes to make a credit card payment. They notice an error in there address and change it. The system charges the user twice.
+      ul.steps
+        li Does this represent a Change Request or a Bug?
+        li: strong Bug
+
+  cmv-slidegroup
+    cmv-slide
+      header
+        h1 In Closing
+      ul.steps
+        li If a system performs any action that is not intended, no matter what the cause of that action, that is a Bug in the system.
+        li Identifying a bug in the system does not nessacearly mean it must be resolved immedately. However, as much information as possible should be gathered so that when a developer goes to resolve the issue, they have all the information they require to do so.
+
+  cmv-slidegroup
+    cmv-slide
+      header
+        h1 The End

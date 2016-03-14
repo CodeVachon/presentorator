@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>What is a Bug?</title>
+    <script src="/bower_components/platform/platform.js"></script>
+    <link rel="import" href="/bower_components/polymer/polymer.html">
+    <link rel="import" href="/elements/cmv-deck.html">
+    <link rel="import" href="/elements/cmv-slidegroup.html">
+    <link rel="import" href="/elements/cmv-slide.html">
+    <style>@import url('/includes/css/default.min.css');</style>
+  </head>
+  <body>
+    <cmv-deck>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>What is a Bug?</h1>
+            <p>An exploration of the difference between a bug and change.</p>
+          </header>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>2 types of Requests</h1>
+          </header>
+          <ul class="steps">
+            <li>there are two main types of requests to change a system
+              <ol>
+                <li>Change Request</li>
+                <li>Bug Report</li>
+              </ol>
+            </li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h1>Change Request</h1>
+          </header>
+          <ul class="steps">
+            <li>These are requests to change or remove exisiting functionality or to have new functionality added</li>
+            <li>These can usually be planned well ahead of time and often have well defined requiements</li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h1>Bug Report</h1>
+          </header>
+          <ul class="steps">
+            <li>These are submitted errors in existing functionality</li>
+            <li>Any action done by the system which is not what was designed is a bug</li>
+          </ul>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>Examples</h1>
+          </header>
+          <p>A user pushes a button called "Goto Homepage". The system directs them to an article listing page.</p>
+          <ul class="steps">
+            <li>Does this represent a Change Request or a Bug?</li>
+            <li><strong>Bug</strong></li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h1>Examples</h1>
+          </header>
+          <p>A user enters their address into the system, and notices that they do not have enough fields for their entire address. They need an additional input.</p>
+          <ul class="steps">
+            <li>Does this represent a Change Request or a Bug?</li>
+            <li><strong>Change Request</strong></li>
+          </ul>
+        </cmv-slide>
+        <cmv-slide>
+          <header>
+            <h1>Examples</h1>
+          </header>
+          <p>A user goes to make a credit card payment. They notice an error in there address and change it. The system charges the user twice.</p>
+          <ul class="steps">
+            <li>Does this represent a Change Request or a Bug?</li>
+            <li><strong>Bug</strong></li>
+          </ul>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>In Closing</h1>
+          </header>
+          <ul class="steps">
+            <li>If a system performs any action that is not intended, no matter what the cause of that action, that is a Bug in the system.</li>
+            <li>Identifying a bug in the system does not nessacearly mean it must be resolved immedately. However, as much information as possible should be gathered so that when a developer goes to resolve the issue, they have all the information they require to do so.</li>
+          </ul>
+        </cmv-slide>
+      </cmv-slidegroup>
+      <cmv-slidegroup>
+        <cmv-slide>
+          <header>
+            <h1>The End</h1>
+          </header>
+        </cmv-slide>
+      </cmv-slidegroup>
+    </cmv-deck>
+  </body>
+</html>
